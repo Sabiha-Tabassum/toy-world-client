@@ -5,6 +5,7 @@ import Login from "../Pages/Login/Login";
 import Registration from "../Pages/Registration/Registration";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
+
 const router = createBrowserRouter([
     {
       path: "/",
@@ -25,7 +26,9 @@ const router = createBrowserRouter([
         {
           path: 'register',
           element: <Registration></Registration>
-        }
+        },
+
+        
       ]
     },
   ]);

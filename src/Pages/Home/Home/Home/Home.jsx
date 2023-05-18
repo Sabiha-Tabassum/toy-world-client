@@ -1,10 +1,18 @@
 import React from 'react';
+
+
 import Banner from '../../Banner/Banner';
+import Category from '../../Category/Category';
+import GallerySection from '../../GallerySection/GallerySection';
 
 const Home = () => {
     return (
         <div>
             <Banner></Banner>
+            <GallerySection></GallerySection>
+            <Category></Category>
+            
+          
         </div>
     );
 };
