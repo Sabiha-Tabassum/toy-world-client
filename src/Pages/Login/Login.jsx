@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
 import { FaGoogle } from 'react-icons/fa';
+import Lottie from "lottie-react";
+import loginAnimation from '../../assets/106680-login-and-sign-up.json';
 
 
 const Login = () => {
@@ -36,17 +38,17 @@ const Login = () => {
     // googleSignIn
 
     const handleGoogleSignIn = () => {
-          googleSignIn()
-          .then(result => {
-            const googleUser = result.user;
-            console.log(googleUser);
-            
-        })
+        googleSignIn()
+            .then(result => {
+                const googleUser = result.user;
+                console.log(googleUser);
 
-        .catch(error => {
-            console.log('error', error.message);
-           
-        })
+            })
+
+            .catch(error => {
+                console.log('error', error.message);
+
+            })
 
     }
 
@@ -58,7 +60,7 @@ const Login = () => {
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
 
-                        <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+                        <Lottie animationData={loginAnimation} loop={true} />
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">

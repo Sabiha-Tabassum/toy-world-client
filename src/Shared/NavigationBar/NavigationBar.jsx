@@ -1,14 +1,32 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../images/car-logo.png';
+import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
 
 const NavigationBar = () => {
+    const { user, logOut } = useContext(AuthContext);
+    const [isHovered, setIsHovered] = useState(false);
     const navItems = <>
         <Link>Home</Link>
         <Link to='' className='mx-4'>All Toys</Link>
         <Link>Blog</Link>
 
     </>
+
+    const handleLogOut = () => {
+         logOut()
+        .then()
+        .catch(error => console.log(error));
+    };
+
+    const handleMouseEnter = () => {
+        setIsHovered(true);
+    };
+
+    const handleMouseLeave = () => {
+        setIsHovered(false);
+    };
+
     return (
         <div className='max-w-5xl mx-auto'>
             <div className="navbar bg-base-100">
@@ -27,16 +45,36 @@ const NavigationBar = () => {
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
-                         {navItems}
+                        {navItems}
                     </ul>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
-                       {/* my toys user profile */}
+                    <ul className="menu menu-horizontal ml-96 relative">
+                        {
+                            user && <div>
+                                <div>
+                                    <img className='rounded-full h-10 cursor-pointer' src={user.photoURL} alt=""
+                                        onMouseEnter={handleMouseEnter}
+                                        onMouseLeave={handleMouseLeave} />
+
+                                </div>
+                            </div>
+                        }
+
+                        {
+                            isHovered && <div className='absolute left-10 top-4 bg-slate-200'>
+                                <span>{user.displayName}</span>
+                            </div>
+                        }
                     </ul>
                 </div>
+
                 <div className="navbar-end">
-                    <Link to="/login" className="btn">Login</Link>
+                    {
+                        user ? <Link to="/login" className="btn btn-info" onClick={handleLogOut}>LogOut</Link> :
+                        <Link to="/login" className="btn btn-info">Login</Link>
+                    }
+                   
                 </div>
             </div>
         </div>
