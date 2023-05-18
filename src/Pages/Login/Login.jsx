@@ -1,10 +1,33 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
 
 const Login = () => {
+    const {logIn} = useContext(AuthContext);
+    const [error, setError] = useState('');
+
 
     const handleLoginForm = event => {
         event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email,password);
+        
+        logIn(email,password)
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+            setError('');
+            event.target.reset();
+        })
+
+        .catch(error => {
+            console.error(error.message);
+            setError(error.message);
+        })
     }
+
     return (
         <div className='max-w-6xl mx-auto mb-2'>
             <div className="hero min-h-screen  bg-sky-100 ">
@@ -21,22 +44,31 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input type="text" placeholder="email" className="input input-bordered" />
+                                <input type="text" name='email' placeholder="email" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
                                 </label>
-                                <input type="text" placeholder="password" className="input input-bordered" />
-                                <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
-                                </label>
+                                <input type="password" name='password' placeholder="password" className="input input-bordered" />
+                            
                             </div>
                             <div className="form-control mt-6">
                                 
                                 <input  className="btn btn-primary" type="submit" value="Login" />
                             </div>
                         </form>
+                        <div>
+                            <p className='text-red-500'>{error}</p>
+                        </div>
+                        <br />
+                        <div>
+                            <p>Doesn't have an Account yet? <Link className='text-sky-700 font-semibold' to="/register">Register</Link></p>
+                        </div>
+                        <br />
+                        <div>
+                            <p className='text-sky-500 font-semibold'>____________________OR_________________________</p>
+                        </div>
                            
                       </div>
                     </div>
