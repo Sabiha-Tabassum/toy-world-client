@@ -7,13 +7,15 @@ import loginAnimation from '../../assets/106680-login-and-sign-up.json';
 
 
 const Login = () => {
-    const { logIn, updateProfile, googleSignIn } = useContext(AuthContext);
+    const {logIn, updateProfile, googleSignIn } = useContext(AuthContext);
     const [error, setError] = useState('');
+   
 
 
     const handleLoginForm = event => {
         event.preventDefault();
         const form = event.target;
+        
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
@@ -23,12 +25,14 @@ const Login = () => {
                 const loggedUser = result.user;
                 console.log(loggedUser);
                 setError('');
+                
                 event.target.reset();
             })
 
             .catch(error => {
                 console.error(error.message);
                 setError(error.message);
+                
             })
 
         updateProfile();
@@ -79,6 +83,7 @@ const Login = () => {
                                     <input type="password" name='password' placeholder="password" className="input input-bordered" />
 
                                 </div>
+                               
                                 <div className="form-control mt-6">
 
                                     <input className="btn btn-info" type="submit" value="Login" />
@@ -87,6 +92,7 @@ const Login = () => {
                             <div>
                                 <p className='text-red-500'>{error}</p>
                             </div>
+                           
                             <br />
                             <div>
                                 <p>Doesn't have an Account yet? <Link className='text-sky-600 font-semibold' to="/register">Register</Link></p>

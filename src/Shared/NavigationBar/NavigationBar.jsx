@@ -14,9 +14,9 @@ const NavigationBar = () => {
     </>
 
     const handleLogOut = () => {
-         logOut()
-        .then()
-        .catch(error => console.log(error));
+        logOut()
+            .then()
+            .catch(error => console.log(error));
     };
 
     const handleMouseEnter = () => {
@@ -43,17 +43,21 @@ const NavigationBar = () => {
                         <img src={logo} alt="" />
                     </Link>
                 </div>
-                <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal px-1">
+                <div className="navbar-center hidden lg:flex ">
+                    <ul className="menu menu-horizontal">
                         {navItems}
                     </ul>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                    <ul className="menu menu-horizontal ml-96 relative">
+                  
+                </div>
+
+                <div className="navbar-end">
+                    <div className='relative px-8'>
                         {
                             user && <div>
                                 <div>
-                                    <img className='rounded-full h-10 cursor-pointer' src={user.photoURL} alt=""
+                                    <img className=' rounded-full h-10 cursor-pointer' src={user.photoURL} alt=""
                                         onMouseEnter={handleMouseEnter}
                                         onMouseLeave={handleMouseLeave} />
 
@@ -62,19 +66,16 @@ const NavigationBar = () => {
                         }
 
                         {
-                            isHovered && <div className='absolute left-10 top-4 bg-slate-200'>
+                            isHovered && <div className='absolute left-10 top-8 bg-slate-200'>
                                 <span>{user.displayName}</span>
                             </div>
                         }
-                    </ul>
-                </div>
-
-                <div className="navbar-end">
+                    </div>
                     {
-                        user ? <Link to="/login" className="btn btn-info" onClick={handleLogOut}>LogOut</Link> :
-                        <Link to="/login" className="btn btn-info">Login</Link>
+                        user ? <Link to="/login" className="btn btn-outline btn-info" onClick={handleLogOut}>LogOut</Link> :
+                            <Link to="/login" className="btn btn-outline btn-info">Login</Link>
                     }
-                   
+
                 </div>
             </div>
         </div>
