@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
 
 const Registration = () => {
-    const { createUser, } = useContext(AuthContext);
+    const { createUser, updateProfile } = useContext(AuthContext);
     const [error, setError] = useState('');
 
     const handleRegisterForm = event => {
@@ -27,6 +27,8 @@ const Registration = () => {
                 console.error(error.message);
                 setError(error.message);
             })
+
+            updateProfile(); 
 
     }
 
@@ -69,7 +71,7 @@ const Registration = () => {
                                 </div>
                                 <div className="form-control mt-6">
 
-                                    <input className="btn btn-primary" type="submit" value="Registration" />
+                                    <input className="btn btn-info" type="submit" value="Registration" />
                                 </div>
                             </form>
                             <div>
@@ -77,7 +79,7 @@ const Registration = () => {
                             </div>
                             <br />
                             <div>
-                                <p>If you have an Account go to <Link className='text-sky-700 font-semibold' to="/login">Login</Link></p>
+                                <p>If you have an Account go to <Link className='text-sky-600 font-semibold' to="/login">Login</Link></p>
                             </div>
                             <br />
 

@@ -1,9 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
+import { FaGoogle } from 'react-icons/fa';
+
 
 const Login = () => {
-    const {logIn} = useContext(AuthContext);
+    const { logIn, updateProfile, googleSignIn } = useContext(AuthContext);
     const [error, setError] = useState('');
 
 
@@ -12,65 +14,93 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email,password);
-        
-        logIn(email,password)
-        .then(result => {
-            const loggedUser = result.user;
-            console.log(loggedUser);
-            setError('');
-            event.target.reset();
+        console.log(email, password);
+
+        logIn(email, password)
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                setError('');
+                event.target.reset();
+            })
+
+            .catch(error => {
+                console.error(error.message);
+                setError(error.message);
+            })
+
+        updateProfile();
+
+    }
+
+    // googleSignIn
+
+    const handleGoogleSignIn = () => {
+          googleSignIn()
+          .then(result => {
+            const googleUser = result.user;
+            console.log(googleUser);
+            
         })
 
         .catch(error => {
-            console.error(error.message);
-            setError(error.message);
+            console.log('error', error.message);
+           
         })
+
     }
+
+
 
     return (
         <div className='max-w-6xl mx-auto mb-2'>
             <div className="hero min-h-screen  bg-sky-100 ">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
-                       
+
                         <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                      <div className="card-body">
-                        <h1 className="text-3xl font-bold">Login now!</h1>
-                        <form onSubmit={handleLoginForm}>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Email</span>
-                                </label>
-                                <input type="text" name='email' placeholder="email" className="input input-bordered" />
+                        <div className="card-body">
+                            <h1 className="text-3xl font-bold">Login now!</h1>
+                            <form onSubmit={handleLoginForm}>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Email</span>
+                                    </label>
+                                    <input type="text" name='email' placeholder="email" className="input input-bordered" />
+                                </div>
+                                <div className="form-control">
+                                    <label className="label">
+                                        <span className="label-text">Password</span>
+                                    </label>
+                                    <input type="password" name='password' placeholder="password" className="input input-bordered" />
+
+                                </div>
+                                <div className="form-control mt-6">
+
+                                    <input className="btn btn-info" type="submit" value="Login" />
+                                </div>
+                            </form>
+                            <div>
+                                <p className='text-red-500'>{error}</p>
                             </div>
-                            <div className="form-control">
-                                <label className="label">
-                                    <span className="label-text">Password</span>
-                                </label>
-                                <input type="password" name='password' placeholder="password" className="input input-bordered" />
-                            
+                            <br />
+                            <div>
+                                <p>Doesn't have an Account yet? <Link className='text-sky-600 font-semibold' to="/register">Register</Link></p>
                             </div>
-                            <div className="form-control mt-6">
-                                
-                                <input  className="btn btn-primary" type="submit" value="Login" />
+                            <br />
+                            <div>
+                                <p className='text-sky-500 font-semibold'>_____________________OR_________________________</p>
                             </div>
-                        </form>
-                        <div>
-                            <p className='text-red-500'>{error}</p>
+                            <div className=' ml-24'>
+                                <button onClick={handleGoogleSignIn} className="btn btn-outline btn-info w-28">  <FaGoogle className='text-sky-700'></FaGoogle></button>
+                            </div>
+
+
+
+
                         </div>
-                        <br />
-                        <div>
-                            <p>Doesn't have an Account yet? <Link className='text-sky-700 font-semibold' to="/register">Register</Link></p>
-                        </div>
-                        <br />
-                        <div>
-                            <p className='text-sky-500 font-semibold'>____________________OR_________________________</p>
-                        </div>
-                           
-                      </div>
                     </div>
                 </div>
             </div>
