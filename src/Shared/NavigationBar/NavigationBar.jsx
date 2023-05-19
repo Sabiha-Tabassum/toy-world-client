@@ -8,7 +8,7 @@ const NavigationBar = () => {
     const [isHovered, setIsHovered] = useState(false);
     const navItems = <>
         <Link>Home</Link>
-        <Link to='' className='mx-4'>All Toys</Link>
+        <Link to='/alltoys' className='mx-4'>All Toys</Link>
         <Link>Blog</Link>
         <Link to='/addtoy' className='mx-4'>Add a Toy</Link>
 
