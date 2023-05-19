@@ -37,7 +37,7 @@ const CommentSection = () => {
                         onChange={handleTextArea}
                         className="textarea textarea-info w-80" placeholder="Bio"></textarea>
                     <div>
-                        <button onClick={handleSubmit} className="btn btn-active btn-accent">Submit</button>
+                        <button onClick={handleSubmit} className="btn btn-active btn-info">Submit</button>
                     </div>
                 </div>
 
