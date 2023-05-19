@@ -7,8 +7,9 @@ const NavigationBar = () => {
     const { user, logOut } = useContext(AuthContext);
     const [isHovered, setIsHovered] = useState(false);
     const navItems = <>
-        <Link>Home</Link>
+        <Link to='/'>Home</Link>
         <Link to='/alltoys' className='mx-4'>All Toys</Link>
+        <Link to='/mytoy' className='mx-4'>My Toys</Link>
         <Link>Blog</Link>
         <Link to='/addtoy' className='mx-4'>Add a Toy</Link>
 
