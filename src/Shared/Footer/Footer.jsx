@@ -1,13 +1,17 @@
 import React from 'react';
+import { FaFacebookSquare, FaTwitter, FaYoutube } from 'react-icons/fa';
 import logo from '../../images/car-logo.png';
 
 const Footer = () => {
     return (
-        <div className='bg-sky-500 text-white'>
+        <div className='bg-sky-500 text-white mb-2'>
             <footer className="footer p-10 ">
                 <div>
                     <img className='h-14' src={logo} alt="" />
                     <p>Kids Toys Industries Ltd.<br />Providing reliable tech since 2023</p>
+
+
+
                 </div>
                 <div>
                     <span className="footer-title">Services</span>
@@ -38,6 +42,12 @@ const Footer = () => {
                 </div>
 
             </footer>
+            <div className='flex justify-center mb-2'>
+
+                <FaFacebookSquare className='h-5 w-14'></FaFacebookSquare>
+                <FaTwitter  className='h-5 w-14'></FaTwitter>
+                <FaYoutube className='h-5 w-14'></FaYoutube>
+            </div>
             <div className='text-center'>
                 <p>
                     Copyright © 2023 - All right reserved by Kids Toys Industries Ltd
