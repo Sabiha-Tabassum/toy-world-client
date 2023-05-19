@@ -29,7 +29,7 @@ const Category = () => {
     };
 
     return (
-        <div className='bg-slate-400 max-w-5xl mx-auto'>
+        <div className='bg-sky-200 max-w-5xl mx-auto pt-2 mt-10 shadow-2xl'>
             <div className='ml-80 my-5'>
                 <div
                     onClick={() => handleTabClick("police")}
@@ -37,13 +37,13 @@ const Category = () => {
                         }`}
 
                 >
-                    Police Car
+                   
                     <div className='relative'>
-                        <button onClick={toggleDropdown1}><FaArrowCircleDown className='mx-2 mt-2'></FaArrowCircleDown></button>
+                        <button onClick={toggleDropdown1}>Police Car</button>
                         {isOpen1 && (
                             <div className="absolute">
                                 <ul>
-                                    <div className='bg-slate-200'> <Link >Hot Wheels</Link></div>
+                                    <div className='bg-slate-200'> <Link to="/" >Hot Wheels</Link></div>
                                     <div className='bg-sky-200'><Link >Lego Police Car</Link></div>
                                     <div className='bg-amber-100'><Link >Matchbox Police Cruiser</Link></div>
                                 </ul>
@@ -58,7 +58,7 @@ const Category = () => {
                 >
                     Sports Car
                     <div className='relative'>
-                        <button onClick={toggleDropdown2}><FaArrowCircleDown className='mx-2 mt-2'></FaArrowCircleDown></button>
+                        <button onClick={toggleDropdown2}>Sports Car</button>
                         {isOpen2 && (
                             <div className="absolute">
                                 <ul>
@@ -78,7 +78,7 @@ const Category = () => {
                 >
                     Regular Car
                     <div className='relative'>
-                        <button onClick={toggleDropdown3}><FaArrowCircleDown className='mx-2 mt-2'></FaArrowCircleDown></button>
+                        <button onClick={toggleDropdown3}>Regular Car</button>
                         {isOpen3 && (
                             <div className="absolute">
                                 <ul>

@@ -9,8 +9,8 @@ const GallerySection = () => {
     return (
         <div>
             <div>
-                <h1 className='text-center font-bold text-4xl mt-8'>Large Amount of Toys</h1>
-                <p className='text-center mb-8'>All of our toys are made from sustainably</p>
+                <h1 className='text-center font-bold text-4xl mt-14'>Our Best & Popular Selling Toys</h1>
+                <p className='text-center mb-14'>All of our toys are made from sustainably</p>
             </div>
             <div className='max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
 
