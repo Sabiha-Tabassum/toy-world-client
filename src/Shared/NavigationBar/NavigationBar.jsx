@@ -10,6 +10,7 @@ const NavigationBar = () => {
         <Link>Home</Link>
         <Link to='' className='mx-4'>All Toys</Link>
         <Link>Blog</Link>
+        <Link to='/addtoy' className='mx-4'>Add a Toy</Link>
 
     </>
 
