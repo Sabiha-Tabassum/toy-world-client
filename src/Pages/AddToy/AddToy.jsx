@@ -42,7 +42,7 @@ const AddToy = () => {
 
 
                 <div className='mb-5 pt-4 ml-5 '>
-                    <select className="p-2 rounded-lg " {...register("sub-category")}>
+                    <select className="p-2 rounded-lg " {...register("subCategory")}>
                         <option value="Lego Police Car">Lego Police Car</option>
                         <option value="Hot Wheels">Hot Wheels</option>
 
@@ -81,7 +81,7 @@ const AddToy = () => {
                 <div className='mb-5 pt-4 ml-5'>
                     <input
                         className="p-2 rounded-lg "
-                        {...register("available-quantity")}
+                        {...register("availableQuantity")}
                         placeholder="Quantity"
                         type="text"
                     />
