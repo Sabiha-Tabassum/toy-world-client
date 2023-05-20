@@ -34,6 +34,8 @@ const MyToy = () => {
         }
     }
 
+   
+
 
 
     return (
@@ -56,7 +58,8 @@ const MyToy = () => {
                          MyToys.map(MyToy => <MyToysData
                          key={MyToy._id}
                          MyToy={MyToy}
-                         handleDelete={handleDelete}>
+                         handleDelete={handleDelete}
+                         >
 
                          </MyToysData>)
                        }

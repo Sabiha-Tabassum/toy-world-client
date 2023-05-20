@@ -1,14 +1,14 @@
 import React from 'react';
 
 
-const MyToysData = ({ MyToy,handleDelete }) => {
+const MyToysData = ({ MyToy, handleDelete }) => {
     console.log(MyToy);
 
-    const {_id, title, postedBy, price, deadline, image, subCategory, availableQuantity } = MyToy
-    
+    const { _id, title, postedBy, price, deadline, image, subCategory, availableQuantity } = MyToy
 
 
-  
+
+
 
     return (
 
@@ -36,10 +36,11 @@ const MyToysData = ({ MyToy,handleDelete }) => {
             <td>{price}</td>
             <td>{deadline}</td>
             <th>
-               
-                    <button onClick={() => handleDelete(_id)} className="btn btn-ghost btn-xs">Delete</button>
-               
+
+                <button onClick={() => handleDelete(_id)} className="btn btn-ghost btn-xs">Delete</button>
+
             </th>
+           
         </tr>
 
     );

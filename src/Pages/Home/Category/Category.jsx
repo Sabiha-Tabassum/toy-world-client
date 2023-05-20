@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaArrowCircleDown } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
@@ -10,6 +10,22 @@ const Category = () => {
     const [isOpen1, setIsOpen1] = useState(false);
     const [isOpen2, setIsOpen2] = useState(false);
     const [isOpen3, setIsOpen3] = useState(false);
+    const [specificToy, setSpecificToy] = useState('Hot Wheels')
+
+
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/collection/${specificToy}`)
+            .then((res) => res.json())
+            .then((data) => {
+                setSpecificToy(data);
+            });
+    }, [specificToy]);
+
+
+    const handleSubData = (tabName) => {
+        setSpecificToy(tabName);
+    };
 
 
     const handleTabClick = (tab) => {
@@ -37,18 +53,23 @@ const Category = () => {
                         }`}
 
                 >
-                   
+
                     <div className='relative'>
                         <button onClick={toggleDropdown1}>Police Car</button>
                         {isOpen1 && (
                             <div className="absolute">
                                 <ul>
-                                    <div className='bg-slate-200'> <Link to="/" >Hot Wheels</Link></div>
+                                    <div className='bg-slate-200'>
+
+                                        <button onClick={() => handleSubData('Hot Wheels')}>Hot Wheels</button>
+                                    </div>
                                     <div className='bg-sky-200'><Link >Lego Police Car</Link></div>
                                     <div className='bg-amber-100'><Link >Matchbox Police Cruiser</Link></div>
                                 </ul>
                             </div>
                         )}
+
+                      
                     </div>
                 </div>
                 <div
@@ -63,7 +84,7 @@ const Category = () => {
                             <div className="absolute">
                                 <ul>
                                     <div className='bg-slate-200'> <Link>Ferrari</Link></div>
-                                    <div  className='bg-sky-200'> <Link>Porsche</Link></div>
+                                    <div className='bg-sky-200'> <Link>Porsche</Link></div>
                                     <div className='bg-amber-100'> <Link>Lamborghini </Link></div>
                                 </ul>
                             </div>
@@ -89,12 +110,14 @@ const Category = () => {
                             </div>
                         )}
                     </div>
+                   
                 </div>
 
 
 
             </div>
         </div>
+      
     );
 };
 
