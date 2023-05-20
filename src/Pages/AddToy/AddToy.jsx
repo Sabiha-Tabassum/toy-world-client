@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
+import { Link } from 'react-router-dom';
 
 const AddToy = () => {
     const { user } = useContext(AuthContext);
@@ -123,7 +124,9 @@ const AddToy = () => {
                     </div>
                 </div>
 
-                <input className="bg-sky-600 p-4 ml-5 mb-2 rounded-3xl cursor-pointer" value="Add Toy" type="submit" />
+               <input  className="bg-sky-600 p-4 ml-5 mb-2 rounded-3xl text-white font-semibold cursor-pointer" value="Add Toy" type="submit" />
+
+            
             </form>
         </div>
     );

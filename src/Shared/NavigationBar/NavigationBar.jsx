@@ -1,17 +1,69 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../images/car-logo.png';
 import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
 
 const NavigationBar = () => {
+
     const { user, logOut } = useContext(AuthContext);
     const [isHovered, setIsHovered] = useState(false);
     const navItems = <>
-        <Link to='/'>Home</Link>
-        <Link to='/alltoys' className='mx-4'>All Toys</Link>
-        <Link to='/mytoy' className='mx-4'>My Toys</Link>
-        <Link to='/blog'>Blog</Link>
-        <Link to='/addtoy' className='mx-4'>Add a Toy</Link>
+        <div className='mx-4'>
+            <NavLink
+                to="/"
+
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "text-sky-500 font-semibold" : ""
+                }
+            >
+                Home
+            </NavLink>
+        </div>
+
+        <div className='mx-4'>
+            <NavLink
+                to="/alltoys"
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "text-sky-500 font-semibold" : ""
+                }
+            >
+                All Toys
+            </NavLink>
+        </div>
+
+        {
+            user && <NavLink
+                to="/mytoy"
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "text-sky-500 font-semibold" : ""
+                }
+            >
+                My Toys
+            </NavLink>
+        }
+
+        <div className='mx-4'>
+            <NavLink
+                to="/blog"
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "text-sky-500 font-semibold" : ""
+                }
+            >
+                Blog
+            </NavLink>
+        </div>
+
+        {
+            user && <NavLink
+                to="/addtoy"
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "text-sky-500 font-semibold" : ""
+                }
+            >
+                Add Toy
+            </NavLink>
+        }
+
 
     </>
 
@@ -44,6 +96,7 @@ const NavigationBar = () => {
                     <Link to="/" className="w-40">
                         <img src={logo} alt="" />
                     </Link>
+                    <Link to='/'><h1>KidS Toy Car</h1></Link>
                 </div>
                 <div className="navbar-center hidden lg:flex ">
                     <ul className="menu menu-horizontal">
@@ -51,7 +104,7 @@ const NavigationBar = () => {
                     </ul>
                 </div>
                 <div className="navbar-center hidden lg:flex">
-                  
+
                 </div>
 
                 <div className="navbar-end">

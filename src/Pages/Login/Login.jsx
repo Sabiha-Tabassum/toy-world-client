@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
 import { FaGoogle } from 'react-icons/fa';
 import Lottie from "lottie-react";
@@ -9,6 +9,11 @@ import loginAnimation from '../../assets/106680-login-and-sign-up.json';
 const Login = () => {
     const {logIn, updateProfile, googleSignIn } = useContext(AuthContext);
     const [error, setError] = useState('');
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const from = location.state?.from?.pathname || '/'
    
 
 
@@ -27,6 +32,7 @@ const Login = () => {
                 setError('');
                 
                 event.target.reset();
+                navigate(from, { replace: true })
             })
 
             .catch(error => {
@@ -74,13 +80,13 @@ const Login = () => {
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input type="text" name='email' placeholder="email" className="input input-bordered" />
+                                    <input type="text" name='email' placeholder="email" className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type="password" name='password' placeholder="password" className="input input-bordered" />
+                                    <input type="password" name='password' placeholder="password" className="input input-bordered" required />
 
                                 </div>
                                
