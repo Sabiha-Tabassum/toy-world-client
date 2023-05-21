@@ -13,6 +13,7 @@ const Home = () => {
             <Banner></Banner>
             <GallerySection></GallerySection>
             <Category></Category>
+            
             <Faq></Faq>
             <CommentSection></CommentSection>
             

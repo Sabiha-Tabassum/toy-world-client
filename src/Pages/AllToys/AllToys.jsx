@@ -7,10 +7,10 @@ import AllToysData from '../AllToysData/AllToysData';
 const AllToys = () => {
     const { user } = useContext(AuthContext);
     const [allToys, setAllToys] = useState([]);
-    // const url = 'http://localhost:5000/addToy'
+    // const url = 'https://toy-world-server-lilac.vercel.app/addToy'
 
     useEffect(() => {
-        fetch('http://localhost:5000/addToy')
+        fetch('https://toy-world-server-lilac.vercel.app/addToy')
             .then(res => res.json())
             .then(data => setAllToys(data))
 

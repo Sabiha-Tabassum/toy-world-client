@@ -15,7 +15,7 @@ const AddToy = () => {
     const onSubmit = (data) => {
 
 
-        fetch("http://localhost:5000/addToy", {
+        fetch("https://toy-world-server-lilac.vercel.app/addToy", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),

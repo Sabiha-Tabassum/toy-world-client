@@ -12,6 +12,7 @@ import DetailsPage from "../Pages/DetailsPage/DetailsPage";
 import Blog from "../Pages/Blog/Blog";
 
 
+
 const router = createBrowserRouter([
     {
       path: "/",
@@ -55,13 +56,15 @@ const router = createBrowserRouter([
         {
           path: 'details/:id',
           element: <DetailsPage></DetailsPage>,
-          loader: ({params}) => fetch(`http://localhost:5000/addToy/${params.id}`)
+          loader: ({params}) => fetch(`https://toy-world-server-lilac.vercel.app/addToy/${params.id}`)
         },
 
         {
           path: 'blog',
           element: <Blog></Blog>
         }
+
+      
 
         
       ]

@@ -5,20 +5,22 @@ import { Link } from 'react-router-dom';
 
 
 
+
 const Category = () => {
     const [activeTab, setActiveTab] = useState("");
     const [isOpen1, setIsOpen1] = useState(false);
     const [isOpen2, setIsOpen2] = useState(false);
     const [isOpen3, setIsOpen3] = useState(false);
+   
     const [specificToy, setSpecificToy] = useState('Hot Wheels')
 
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/collection/${specificToy}`)
+        fetch(`https://toy-world-server-lilac.vercel.app/collection/${specificToy}`)
             .then((res) => res.json())
             .then((data) => {
-                setSpecificToy(data);
+               console.log(data);
             });
     }, [specificToy]);
 
@@ -77,7 +79,7 @@ const Category = () => {
                     className={`tab  tab2 sports ${activeTab == "sports" ? " bg-sky-600 text-black font-semibold" : ""
                         }`}
                 >
-                    Sports Car
+                   
                     <div className='relative'>
                         <button onClick={toggleDropdown2}>Sports Car</button>
                         {isOpen2 && (
@@ -97,7 +99,7 @@ const Category = () => {
                     className={`tab  tab2 regular ${activeTab == "regular" ? " bg-sky-600 text-black font-semibold" : ""
                         }`}
                 >
-                    Regular Car
+                   
                     <div className='relative'>
                         <button onClick={toggleDropdown3}>Regular Car</button>
                         {isOpen3 && (
@@ -107,9 +109,13 @@ const Category = () => {
                                     <div className='bg-sky-200'> <Link>Bruder</Link></div>
                                     <div className='bg-amber-100'> <Link>Hess</Link></div>
                                 </ul>
+                               
+                                
                             </div>
                         )}
                     </div>
+
+                   
                    
                 </div>
 
