@@ -1,14 +1,14 @@
 import React from 'react';
 import { FaFacebookSquare, FaTwitter, FaYoutube } from 'react-icons/fa';
-import logo from '../../images/car-logo.png';
+import logo from '../../images/limousine.png';
 
 const Footer = () => {
     return (
-        <div className='bg-sky-500 text-white mb-2'>
+        <div className='bg-slate-500 text-white mb-2'>
             <footer className="footer p-10 ">
                 <div>
-                    <img className='h-14' src={logo} alt="" />
-                    <p>Kids Toys Industries Ltd.<br />Providing reliable tech since 2023</p>
+                    <img className='h-16' src={logo} alt="" />
+                    <p>Kids Toys Industries Ltd.<br />Providing reliable toys since 2023</p>
 
 
 

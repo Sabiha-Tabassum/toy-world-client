@@ -4,7 +4,7 @@ import MyToysData from '../MyToysData/MyToysData';
 
 const MyToy = () => {
     const { user } = useContext(AuthContext);
-    const [MyToys, setMyToys] = useState([]);
+    const [myToys, setMyToys] = useState([]);
 
     const url = `https://toy-world-server-lilac.vercel.app/addToy?email=${user?.email}`
 
@@ -27,7 +27,7 @@ const MyToy = () => {
                 console.log(data);
                 if(data.deletedCount > 0){
                     alert('Deleted successfully');
-                    const remaining = MyToys.filter(toy => toy._id !== id);
+                    const remaining = myToys.filter(toy => toy._id !== id);
                     setMyToys(remaining);
                 }
             })
@@ -41,6 +41,7 @@ const MyToy = () => {
     return (
         <div className='max-w-5xl mx-auto'>
             <div className="overflow-x-auto w-full">
+                <div>{myToys.length}</div>
                 <table className="table w-full">
                     {/* head */}
                     <thead>
@@ -51,11 +52,12 @@ const MyToy = () => {
                             <th>Available Quantity</th>
                             <th>Price</th>
                             <th>deadline</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>
                        {
-                         MyToys.map(MyToy => <MyToysData
+                         myToys.map(MyToy => <MyToysData
                          key={MyToy._id}
                          MyToy={MyToy}
                          handleDelete={handleDelete}

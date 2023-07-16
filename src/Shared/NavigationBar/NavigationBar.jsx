@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import logo from '../../images/car-logo.png';
+import logo from '../../images/limousine.png';
 import { AuthContext } from '../../providers/AuthProvider/AuthProvider';
 
 const NavigationBar = () => {
@@ -13,7 +13,7 @@ const NavigationBar = () => {
                 to="/"
 
                 className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "text-sky-500 font-semibold" : ""
+                    isPending ? "pending" : isActive ? "text-amber-400 font-bold" : ""
                 }
             >
                 Home
@@ -24,45 +24,49 @@ const NavigationBar = () => {
             <NavLink
                 to="/alltoys"
                 className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "text-sky-500 font-semibold" : ""
+                    isPending ? "pending" : isActive ? "text-amber-400 font-bold" : ""
                 }
             >
                 All Toys
             </NavLink>
         </div>
 
-        {
-            user && <NavLink
-                to="/mytoy"
-                className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "text-sky-500 font-semibold" : ""
-                }
-            >
-                My Toys
-            </NavLink>
-        }
 
         <div className='mx-4'>
             <NavLink
                 to="/blog"
                 className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "text-sky-500 font-semibold" : ""
+                    isPending ? "pending" : isActive ? "text-amber-400 font-bold" : ""
                 }
             >
                 Blog
             </NavLink>
         </div>
 
+
+
         {
             user && <NavLink
                 to="/addtoy"
                 className={({ isActive, isPending }) =>
-                    isPending ? "pending" : isActive ? "text-sky-500 font-semibold" : ""
+                    isPending ? "pending" : isActive ? "text-amber-400 font-bold mx-4" : "mx-4"
                 }
             >
                 Add Toy
             </NavLink>
         }
+
+        {
+            user?.email ? <NavLink
+                to="/mytoy"
+                className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "text-amber-400 font-bold" : ""
+                }
+            >
+                My Toys
+            </NavLink> : ''
+        }
+
 
 
     </>
@@ -82,7 +86,7 @@ const NavigationBar = () => {
     };
 
     return (
-        <div className='max-w-5xl mx-auto'>
+        <div className='max-w-5xl mx-auto h-28'>
             <div className="navbar bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -93,10 +97,10 @@ const NavigationBar = () => {
                             {navItems}
                         </ul>
                     </div>
-                    <Link to="/" className="w-40">
-                        <img src={logo} alt="" />
+                    <Link to="/" className="">
+                        <img className='w-20' src={logo} alt="" />
                     </Link>
-                    <Link to='/'><h1>KidS Toy Car</h1></Link>
+                    <Link to='/'><h1 className='font-bold text-amber-400 ml-8'>KidS Toy Shop</h1></Link>
                 </div>
                 <div className="navbar-center hidden lg:flex ">
                     <ul className="menu menu-horizontal">
@@ -127,8 +131,8 @@ const NavigationBar = () => {
                         }
                     </div>
                     {
-                        user ? <Link to="/login" className="btn btn-outline btn-info" onClick={handleLogOut}>LogOut</Link> :
-                            <Link to="/login" className="btn btn-outline btn-info">Login</Link>
+                        user?.email ? <Link to="/login" className="btn btn-outline btn-warning border-b-4 border-amber-400" onClick={handleLogOut}>LogOut</Link> :
+                            <Link to="/login" className="btn btn-outline btn-warning border-b-4 border-amber-400">Login</Link>
                     }
 
                 </div>

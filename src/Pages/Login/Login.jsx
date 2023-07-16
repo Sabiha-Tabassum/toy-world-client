@@ -66,7 +66,7 @@ const Login = () => {
 
     return (
         <div className='max-w-6xl mx-auto mb-2'>
-            <div className="hero min-h-screen  bg-sky-100 ">
+            <div className="hero min-h-screen  bg-slate-100 ">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
 
@@ -74,17 +74,17 @@ const Login = () => {
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <div className="card-body">
-                            <h1 className="text-3xl font-bold">Login now!</h1>
+                            <h1 className="text-3xl font-bold ">Login now!</h1>
                             <form onSubmit={handleLoginForm}>
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text">Email</span>
+                                        <span className="label-text font-bold">Email</span>
                                     </label>
                                     <input type="text" name='email' placeholder="email" className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text">Password</span>
+                                        <span className="label-text font-bold">Password</span>
                                     </label>
                                     <input type="password" name='password' placeholder="password" className="input input-bordered" required />
 
@@ -92,7 +92,7 @@ const Login = () => {
                                
                                 <div className="form-control mt-6">
 
-                                    <input className="btn btn-info" type="submit" value="Login" />
+                                    <input className="btn btn-outline border-b-4 border-slate-700" type="submit" value="Login" />
                                 </div>
                             </form>
                             <div>
@@ -101,14 +101,14 @@ const Login = () => {
                            
                             <br />
                             <div>
-                                <p>Doesn't have an Account yet? <Link className='text-sky-600 font-semibold' to="/register">Register</Link></p>
+                                <p>Doesn't have an Account yet? <Link className='text-slate-700-500 font-bold' to="/register">Register</Link></p>
                             </div>
                             <br />
                             <div>
-                                <p className='text-sky-500 font-semibold'>_____________________OR_________________________</p>
+                                <p className='text-slate-500 font-semibold'>_____________________OR_________________________</p>
                             </div>
                             <div className=' ml-24'>
-                                <button onClick={handleGoogleSignIn} className="btn btn-outline btn-info w-28">  <FaGoogle className='text-sky-700'></FaGoogle></button>
+                                <button onClick={handleGoogleSignIn} className="btn btn-outline  w-28">  <FaGoogle className='text-slate-700'></FaGoogle></button>
                             </div>
 
 

@@ -49,32 +49,32 @@ const Registration = () => {
                             <form onSubmit={handleRegisterForm}>
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text">Name</span>
+                                        <span className="label-text font-bold">Name</span>
                                     </label>
                                     <input type="text" name='name' placeholder="Your Name" className="input input-bordered" />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text">Email</span>
+                                        <span className="label-text font-bold">Email</span>
                                     </label>
                                     <input type="text" name='email' placeholder="email" className="input input-bordered" />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text">Photo</span>
+                                        <span className="label-text font-bold">Photo</span>
                                     </label>
                                     <input type="text" name='photo' placeholder="Your Photo" className="input input-bordered" />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text">Password</span>
+                                        <span className="label-text font-bold">Password</span>
                                     </label>
                                     <input type="password" name='password' placeholder="password" className="input input-bordered" />
 
                                 </div>
                                 <div className="form-control mt-6">
 
-                                    <input className="btn btn-info" type="submit" value="Registration" />
+                                    <input className="btn btn-outline border-b-4 border-slate-700" type="submit" value="Registration" />
                                 </div>
                             </form>
                             <div>
@@ -85,7 +85,7 @@ const Registration = () => {
                             </div>
                             <br />
                             <div>
-                                <p>If you have an Account go to <Link className='text-sky-600 font-semibold' to="/login">Login</Link></p>
+                                <p>If you have an Account go to <Link className='text-slate-600 font-bold' to="/login">Login</Link></p>
                             </div>
                             <br />
 
